@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity="0.25">
+    <circle cx="980" cy="120" r="160" fill="#22d3ee"/>
+    <circle cx="1080" cy="530" r="220" fill="#6366f1"/>
+  </g>
+  <rect x="80" y="90" width="1040" height="450" rx="24" fill="#0b1022" stroke="#334155" stroke-width="2"/>
+  <text x="140" y="250" fill="#e2e8f0" font-size="72" font-family="Segoe UI, Arial, sans-serif" font-weight="700">TCRAS Transfer</text>
+  <text x="140" y="320" fill="#93c5fd" font-size="36" font-family="Segoe UI, Arial, sans-serif">Secure File Transfer · LAN + Cloud Relay</text>
+  <text x="140" y="430" fill="#94a3b8" font-size="28" font-family="Segoe UI, Arial, sans-serif">Risk Analysis · Receiver Inbox · Device-based Routing</text>
+</svg>
