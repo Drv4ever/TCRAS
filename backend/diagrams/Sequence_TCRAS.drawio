@@ -1,0 +1,454 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.10">
+  <diagram id="seq1" name="Sequence Diagram">
+    <mxGraphModel dx="1200" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="2400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- TITLE -->
+        <mxCell id="title" parent="1" style="fontSize=16;fontStyle=1;align=center;" value="TCRAS System - File Transfer Risk Analysis Sequence" vertex="1">
+          <mxGeometry x="0" y="0" width="1600" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- ACTORS/PARTICIPANTS (HEADER BOXES) -->
+        <mxCell id="l1" parent="1" style="rounded=0;fillColor=#4A90E2;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;verticalAlign=middle;strokeWidth=2;" value="Transfer App" vertex="1">
+          <mxGeometry height="50" width="150" x="100" y="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="l2" parent="1" style="rounded=0;fillColor=#50C878;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;verticalAlign=middle;strokeWidth=2;" value="File Monitor&#10;Agent" vertex="1">
+          <mxGeometry height="50" width="150" x="350" y="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="l3" parent="1" style="rounded=0;fillColor=#FF6B6B;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;verticalAlign=middle;strokeWidth=2;" value="Server API" vertex="1">
+          <mxGeometry height="50" width="150" x="600" y="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="l4" parent="1" style="rounded=0;fillColor=#FFB84D;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;verticalAlign=middle;strokeWidth=2;" value="Graph Engine" vertex="1">
+          <mxGeometry height="50" width="150" x="850" y="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="l5" parent="1" style="rounded=0;fillColor=#9B59B6;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;verticalAlign=middle;strokeWidth=2;" value="Risk Engine" vertex="1">
+          <mxGeometry height="50" width="150" x="1100" y="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="l6" parent="1" style="rounded=0;fillColor=#3498DB;fontSize=12;fontStyle=1;fontColor=#ffffff;align=center;verticalAlign=middle;strokeWidth=2;" value="Database" vertex="1">
+          <mxGeometry height="50" width="150" x="1350" y="60" as="geometry" />
+        </mxCell>
+        
+        <!-- LIFELINES (DASHED VERTICAL LINES) -->
+        <mxCell id="line1" parent="1" style="line;strokeWidth=1;strokeColor=#CCCCCC;dashed=1;" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="175" y="110" as="sourcePoint" />
+            <mxPoint x="175" y="2300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="line2" parent="1" style="line;strokeWidth=1;strokeColor=#CCCCCC;dashed=1;" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="425" y="110" as="sourcePoint" />
+            <mxPoint x="425" y="2300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="line3" parent="1" style="line;strokeWidth=1;strokeColor=#CCCCCC;dashed=1;" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="675" y="110" as="sourcePoint" />
+            <mxPoint x="675" y="2300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="line4" parent="1" style="line;strokeWidth=1;strokeColor=#CCCCCC;dashed=1;" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="925" y="110" as="sourcePoint" />
+            <mxPoint x="925" y="2300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="line5" parent="1" style="line;strokeWidth=1;strokeColor=#CCCCCC;dashed=1;" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1175" y="110" as="sourcePoint" />
+            <mxPoint x="1175" y="2300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="line6" parent="1" style="line;strokeWidth=1;strokeColor=#CCCCCC;dashed=1;" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1425" y="110" as="sourcePoint" />
+            <mxPoint x="1425" y="2300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 1: User initiates -->
+        <mxCell id="step1" parent="1" style="rounded=1;fillColor=#E8F4F8;strokeWidth=2;fontSize=11;align=center;verticalAlign=middle;" value="Step 1: User Initiates Transfer" vertex="1">
+          <mxGeometry height="35" width="200" x="75" y="150" as="geometry" />
+        </mxCell>
+        
+        <!-- ARROW 1: Transfer App detects file -->
+        <mxCell id="m1" edge="1" parent="1" source="l1" target="l2" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;strokeWidth=2;endArrow=classic;strokeColor=#4A90E2;curved=0;entryX=0;entryY=0.5;" value="1: File Created in monitored folder">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="0" as="offset" />
+            <Array as="points">
+              <mxPoint x="300" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 2: Agent detects and extracts -->
+        <mxCell id="step2" parent="1" style="rounded=1;fillColor=#F0F8E8;strokeWidth=2;fontSize=10;align=center;verticalAlign=middle;" value="Step 2: Extract File Metadata&#10;- Hash (SHA256)&#10;- Size, Timestamp&#10;- Source/Destination" vertex="1">
+          <mxGeometry height="70" width="140" x="355" y="220" as="geometry" />
+        </mxCell>
+        
+        <!-- ARROW 2: Agent sends POST to Server -->
+        <mxCell id="m2" edge="1" parent="1" source="l2" target="l3" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;strokeWidth=2;endArrow=classic;strokeColor=#50C878;curved=0;entryX=0;entryY=0.5;" value="2: POST /api/event">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="0" as="offset" />
+            <Array as="points">
+              <mxPoint x="537" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 3: Server receives event -->
+        <mxCell id="step3" parent="1" style="rounded=1;fillColor=#FCE8E8;strokeWidth=2;fontSize=10;align=center;verticalAlign=middle;" value="Step 3: Receive &#38; Process&#10;- Validate FileEvent&#10;- Extract IPs &#38; metadata" vertex="1">
+          <mxGeometry height="65" width="140" x="605" y="340" as="geometry" />
+        </mxCell>
+        
+        <!-- ARROW 3: Server to Graph Engine -->
+        <mxCell id="m3" edge="1" parent="1" source="l3" target="l4" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;strokeWidth=2;endArrow=classic;strokeColor=#FF6B6B;curved=0;entryX=0;entryY=0.5;" value="3: add_transfer()">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="0" as="offset" />
+            <Array as="points">
+              <mxPoint x="787" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 4: Graph Engine updates -->
+        <mxCell id="step4" parent="1" style="rounded=1;fillColor:#FFF5E8;strokeWidth=2;fontSize=10;align=center;verticalAlign=middle;" value="Step 4: Graph Update&#10;- Add Node/Edge&#10;- Extract: chain_length&#10;- is_cyclic, node_degree" vertex="1">
+          <mxGeometry height="75" width="140" x="855" y="440" as="geometry" />
+        </mxCell>
+        
+        <!-- ARROW 4: Graph returns to Server -->
+        <mxCell id="m4" edge="1" parent="1" source="l4" target="l3" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;strokeWidth=2;endArrow=classic;strokeColor=#FFB84D;dashed=1;curved=0;entryX=1;entryY=0.5;" value="4: Return features">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-40" y="0" as="offset" />
+            <Array as="points">
+              <mxPoint x="537" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ARROW 5: Server to Risk Engine -->
+        <mxCell id="m5" edge="1" parent="1" source="l3" target="l5" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;strokeWidth=2;endArrow=classic;strokeColor=#FF6B6B;curved=0;entryX=0;entryY=0.5;" value="5: calculate_risk()">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="0" as="offset" />
+            <Array as="points">
+              <mxPoint x="1037" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 5: Risk Engine calculates -->
+        <mxCell id="step5" parent="1" style="rounded=1;fillColor:#F5E8FF;strokeWidth=2;fontSize=10;align=center;verticalAlign=middle;" value="Step 5: Calculate Risk&#10;- Isolation Forest model&#10;- Compute anomaly score&#10;- Determine: LOW/MED/HIGH" vertex="1">
+          <mxGeometry height="80" width="140" x="1105" y="600" as="geometry" />
+        </mxCell>
+        
+        <!-- ARROW 6: Risk Engine returns to Server -->
+        <mxCell id="m6" edge="1" parent="1" source="l5" target="l3" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;strokeWidth=2;endArrow=classic;strokeColor=#9B59B6;dashed=1;curved=0;entryX=1;entryY=0.5;" value="6: Return (score, level)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-40" y="0" as="offset" />
+            <Array as="points">
+              <mxPoint x="537" y="750" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ARROW 7: Server to Database -->
+        <mxCell id="m7" edge="1" parent="1" source="l3" target="l6" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;strokeWidth=2;endArrow=classic;strokeColor=#3498DB;curved=0;entryX=0;entryY=0.5;" value="7: INSERT EventLog">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="0" as="offset" />
+            <Array as="points">
+              <mxPoint x="1287" y="820" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 6: Database stores -->
+        <mxCell id="step6" parent="1" style="rounded=1;fillColor:#E8F8F0;strokeWidth=2;fontSize=10;align=center;verticalAlign=middle;" value="Step 6: Store EventLog&#10;- Filename, Hash, Size&#10;- Source/Dest IP&#10;- Risk Score &#38; Level&#10;- COMMIT transaction" vertex="1">
+          <mxGeometry height="85" width="140" x="1355" y="810" as="geometry" />
+        </mxCell>
+        
+        <!-- ARROW 8: Database confirms to Server -->
+        <mxCell id="m8" edge="1" parent="1" source="l6" target="l3" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;strokeWidth=2;endArrow=classic;strokeColor=#2ECC71;dashed=1;curved=0;entryX=1;entryY=0.5;" value="8: Confirm (ID)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-40" y="0" as="offset" />
+            <Array as="points">
+              <mxPoint x="537" y="960" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ARROW 9: Server to Agent (Response) -->
+        <mxCell id="m9" edge="1" parent="1" source="l3" target="l2" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;strokeWidth=2;endArrow=classic;strokeColor=#50C878;dashed=1;curved=0;entryX=1;entryY=0.5;" value="9: HTTP 200 OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-40" y="0" as="offset" />
+            <Array as="points">
+              <mxPoint x="537" y="1050" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 7: Agent completes -->
+        <mxCell id="step7" parent="1" style="rounded=1;fillColor:#F0F8E8;strokeWidth=2;fontSize=10;align=center;verticalAlign=middle;" value="Step 7: Agent Complete&#10;- Receive response&#10;- Ready for next event" vertex="1">
+          <mxGeometry height="60" width="140" x="355" y="1070" as="geometry" />
+        </mxCell>
+        
+        <!-- INFO BOX -->
+        <mxCell id="info" parent="1" style="rounded=1;fillColor:#FFFACD;strokeWidth=2;fontSize=9;align=left;verticalAlign=top;" value="KEY DETAILS:&#10;• Solid arrows = Requests/Calls&#10;• Dashed arrows = Responses/Returns&#10;• Numbers indicate sequence order&#10;• Each step includes processing details&#10;• All data flows through Server API&#10;• Risk scoring uses ML model" vertex="1">
+          <mxGeometry height="100" width="320" x="75" y="1200" as="geometry" />
+        </mxCell>
+        
+        <!-- SUMMARY BOX -->
+        <mxCell id="summary" parent="1" style="rounded=1;fillColor=#E8F8FF;strokeWidth=2;fontSize=10;align=left;verticalAlign=top;fontStyle=1;" value="FLOW SUMMARY:&#10;1. File transfer triggers detection&#10;2. Agent extracts metadata &#38; sends to Server&#10;3. Server updates Graph with transfer info&#10;4. Server queries Risk Engine for score&#10;5. All data persisted in Database&#10;6. Agent receives response &#38; completes" vertex="1">
+          <mxGeometry height="120" width="400" x="420" y="1200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+        </mxCell>
+        <mxCell id="l4" parent="1" style="rounded=1;fillColor=#FFB84D;fontSize=13;fontStyle=1;fontColor=#ffffff;align=center;verticalAlign=middle;" value="Graph Engine" vertex="1">
+          <mxGeometry height="60" width="140" x="570" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="l5" parent="1" style="rounded=1;fillColor=#9B59B6;fontSize=13;fontStyle=1;fontColor=#ffffff;align=center;verticalAlign=middle;" value="Risk Engine" vertex="1">
+          <mxGeometry height="60" width="140" x="750" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="l6" parent="1" style="rounded=1;fillColor=#3498DB;fontSize=13;fontStyle=1;fontColor=#ffffff;align=center;verticalAlign=middle;" value="Database" vertex="1">
+          <mxGeometry height="60" width="140" x="930" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="l7" parent="1" style="rounded=1;fillColor=#2ECC71;fontSize=13;fontStyle=1;fontColor=#ffffff;align=center;verticalAlign=middle;" value="Dashboard SSE" vertex="1">
+          <mxGeometry height="60" width="140" x="1110" y="20" as="geometry" />
+        </mxCell>
+        
+        <!-- LIFELINES (DASHED VERTICAL LINES) -->
+        <mxCell id="line1" parent="1" style="line;strokeWidth=2;strokeColor=#666666;dashed=1;" edge="1" source="l1" target="l1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="80" as="sourcePoint" />
+            <mxPoint x="100" y="1500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="line2" parent="1" style="line;strokeWidth=2;strokeColor=#666666;dashed=1;" edge="1" source="l2" target="l2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="80" as="sourcePoint" />
+            <mxPoint x="280" y="1500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="line3" parent="1" style="line;strokeWidth=2;strokeColor=#666666;dashed=1;" edge="1" source="l3" target="l3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="80" as="sourcePoint" />
+            <mxPoint x="460" y="1500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="line4" parent="1" style="line;strokeWidth=2;strokeColor=#666666;dashed=1;" edge="1" source="l4" target="l4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="80" as="sourcePoint" />
+            <mxPoint x="640" y="1500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="line5" parent="1" style="line;strokeWidth=2;strokeColor=#666666;dashed=1;" edge="1" source="l5" target="l5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="80" as="sourcePoint" />
+            <mxPoint x="820" y="1500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="line6" parent="1" style="line;strokeWidth=2;strokeColor#666666;dashed=1;" edge="1" source="l6" target="l6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1000" y="80" as="sourcePoint" />
+            <mxPoint x="1000" y="1500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="line7" parent="1" style="line;strokeWidth=2;strokeColor#666666;dashed=1;" edge="1" source="l7" target="l7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1180" y="80" as="sourcePoint" />
+            <mxPoint x="1180" y="1500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 1: User initiates file transfer -->
+        <mxCell id="s1" parent="1" style="rounded=1;fillColor=#E8F4F8;strokeWidth=2;fontSize=11;fontColor=#000000;align=center;verticalAlign=middle;" value="User Initiates&#10;File Transfer" vertex="1">
+          <mxGeometry height="50" width="120" x="35" y="110" as="geometry" />
+        </mxCell>
+        
+        <!-- ARROW 1: Transfer App to File Monitor (Detection) -->
+        <mxCell id="m1" edge="1" parent="1" source="l1" target="l2" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;strokeWidth=2;endArrow=classic;strokeColor=#4A90E2;labelBackgroundColor=#ffffff;" value="1: Monitor File Creation Event">
+          <mxGeometry relative="1" y="-20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m1y" parent="1" value="" style="line;html=1;strokeWidth=2;strokeColor=#4A90E2;" edge="1" source="l1" target="l2">
+          <mxGeometry x="0.5" y="140" width="100" height="20" as="geometry">
+            <mxPoint x="100" y="140" as="sourcePoint" />
+            <mxPoint x="280" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 2: Agent processes file detection -->
+        <mxCell id="s2" parent="1" style="rounded=1;fillColor=#F0F8E8;strokeWidth=2;fontSize=10;fontColor=#000000;align=center;verticalAlign=middle;" value="1.a: File Detected&#10;1.b: Extract Metadata&#10;- File Hash (SHA256)&#10;- File Size&#10;- Timestamp&#10;- Source/Dest Path" vertex="1">
+          <mxGeometry height="80" width="130" x="215" y="175" as="geometry" />
+        </mxCell>
+        
+        <!-- ARROW 2: Agent sends POST to Server API -->
+        <mxCell id="m2" edge="1" parent="1" source="l2" target="l3" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;strokeWidth=2;endArrow=classic;strokeColor=#50C878;labelBackgroundColor=#ffffff;" value="2: POST /api/event (FileEvent JSON)">
+          <mxGeometry relative="1" y="-20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2y" parent="1" value="" style="line;html=1;strokeWidth=2;strokeColor=#50C878;" edge="1" source="l2" target="l3">
+          <mxGeometry x="0.5" y="280" width="100" height="20" as="geometry">
+            <mxPoint x="280" y="280" as="sourcePoint" />
+            <mxPoint x="460" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 3: Server API receives event -->
+        <mxCell id="s3" parent="1" style="rounded=1;fillColor=#FCE8E8;strokeWidth=2;fontSize=10;fontColor=#000000;align=center;verticalAlign=middle;" value="2.a: Receive FileEvent&#10;2.b: Extract Data:&#10;- Source IP&#10;- Destination IP&#10;- Filename, Size&#10;- Timestamp" vertex="1">
+          <mxGeometry height="80" width="130" x="395" y="320" as="geometry" />
+        </mxCell>
+        
+        <!-- ARROW 3: Server API to Graph Engine (add transfer) -->
+        <mxCell id="m3" edge="1" parent="1" source="l3" target="l4" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;strokeWidth=2;endArrow=classic;strokeColor=#FF6B6B;labelBackgroundColor=#ffffff;" value="3: add_transfer(source_ip,&#10;dest_ip, filename, timestamp)">
+          <mxGeometry relative="1" y="-20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m3y" parent="1" value="" style="line;html=1;strokeWidth=2;strokeColor=#FF6B6B;" edge="1" source="l3" target="l4">
+          <mxGeometry x="0.5" y="430" width="100" height="20" as="geometry">
+            <mxPoint x="460" y="430" as="sourcePoint" />
+            <mxPoint x="640" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 4: Graph Engine updates -->
+        <mxCell id="s4" parent="1" style="rounded=1;fillColor#FFF5E8;strokeWidth=2;fontSize=10;fontColor=#000000;align=center;verticalAlign=middle;" value="3.a: Add Node (if new)&#10;3.b: Add Directed Edge&#10;3.c: Extract Features:&#10;- Longest Chain Length&#10;- Detect Cycles&#10;- Node Degree" vertex="1">
+          <mxGeometry height="85" width="130" x="575" y="475" as="geometry" />
+        </mxCell>
+        
+        <!-- ARROW 4: Graph returns features to Server -->
+        <mxCell id="m4" edge="1" parent="1" source="l4" target="l3" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;strokeWidth=2;endArrow=classic;strokeColor=#FFB84D;dashed=1;labelBackgroundColor=#ffffff;" value="4: Return (chain_length, is_cyclic, node_degree)">
+          <mxGeometry relative="1" y="20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m4y" parent="1" value="" style="line;html=1;strokeWidth=2;strokeColor#FFB84D;dashed=1;" edge="1" source="l4" target="l3">
+          <mxGeometry x="0.5" y="590" width="100" height="20" as="geometry">
+            <mxPoint x="640" y="590" as="sourcePoint" />
+            <mxPoint x="460" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ARROW 5: Server to Risk Engine (calculate risk) -->
+        <mxCell id="m5" edge="1" parent="1" source="l3" target="l5" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;strokeWidth=2;endArrow=classic;strokeColor=#FF6B6B;labelBackgroundColor=#ffffff;" value="5: calculate_risk(file_size, chain_length, degree, is_cycle)">
+          <mxGeometry relative="1" y="-20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m5y" parent="1" value="" style="line;html=1;strokeWidth=2;strokeColor#FF6B6B;" edge="1" source="l3" target="l5">
+          <mxGeometry x="0.5" y="650" width="100" height="20" as="geometry">
+            <mxPoint x="460" y="650" as="sourcePoint" />
+            <mxPoint x="820" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 5: Risk Engine calculates -->
+        <mxCell id="s5" parent="1" style="rounded=1;fillColor#F5E8FF;strokeWidth=2;fontSize=10;fontColor=#000000;align=center;verticalAlign=middle;" value="5.a: Use Isolation Forest&#10;5.b: Compute Anomaly Score&#10;5.c: Determine Risk Level:&#10;- LOW / MEDIUM / HIGH&#10;5.d: Generate Risk Details" vertex="1">
+          <mxGeometry height="90" width="130" x="755" y="705" as="geometry" />
+        </mxCell>
+        
+        <!-- ARROW 6: Risk Engine returns result -->
+        <mxCell id="m6" edge="1" parent="1" source="l5" target="l3" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;strokeWidth=2;endArrow=classic;strokeColor=#9B59B6;dashed=1;labelBackgroundColor=#ffffff;" value="6: Return (risk_score, risk_level, details)">
+          <mxGeometry relative="1" y="20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m6y" parent="1" value="" style="line;html=1;strokeWidth=2;strokeColor#9B59B6;dashed=1;" edge="1" source="l5" target="l3">
+          <mxGeometry x="0.5" y="835" width="100" height="20" as="geometry">
+            <mxPoint x="820" y="835" as="sourcePoint" />
+            <mxPoint x="460" y="835" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ARROW 7: Server saves to Database -->
+        <mxCell id="m7" edge="1" parent="1" source="l3" target="l6" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;strokeWidth=2;endArrow=classic;strokeColor=#FF6B6B;labelBackgroundColor=#ffffff;" value="7: INSERT EventLog Record">
+          <mxGeometry relative="1" y="-20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m7y" parent="1" value="" style="line;html=1;strokeWidth=2;strokeColor#FF6B6B;" edge="1" source="l3" target="l6">
+          <mxGeometry x="0.5" y="900" width="100" height="20" as="geometry">
+            <mxPoint x="460" y="900" as="sourcePoint" />
+            <mxPoint x="1000" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 6: Database insertion -->
+        <mxCell id="s6" parent="1" style="rounded=1;fillColor#E8F8F0;strokeWidth=2;fontSize=10;fontColor=#000000;align=center;verticalAlign=middle;" value="7.a: Create EventLog&#10;7.b: Store:&#10;- Filename, Hash&#10;- IPs, Timestamp&#10;- Risk Score/Level&#10;7.c: Commit Transaction" vertex="1">
+          <mxGeometry height="90" width="130" x="935" y="955" as="geometry" />
+        </mxCell>
+        
+        <!-- ARROW 8: Database confirms -->
+        <mxCell id="m8" edge="1" parent="1" source="l6" target="l3" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;strokeWidth=2;endArrow=classic;strokeColor:#3498DB;dashed=1;labelBackgroundColor=#ffffff;" value="8: Confirmation (ID)">
+          <mxGeometry relative="1" y="20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m8y" parent="1" value="" style="line;html=1;strokeWidth=2;strokeColor#3498DB;dashed=1;" edge="1" source="l6" target="l3">
+          <mxGeometry x="0.5" y="1085" width="100" height="20" as="geometry">
+            <mxPoint x="1000" y="1085" as="sourcePoint" />
+            <mxPoint x="460" y="1085" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ARROW 9: Server to Dashboard (SSE Broadcast) -->
+        <mxCell id="m9" edge="1" parent="1" source="l3" target="l7" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;strokeWidth=2;endArrow=classic;strokeColor:#FF6B6B;labelBackgroundColor=#ffffff;" value="9: Broadcast via SSE">
+          <mxGeometry relative="1" y="-20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m9y" parent="1" value="" style="line;html=1;strokeWidth=2;strokeColor#FF6B6B;" edge="1" source="l3" target="l7">
+          <mxGeometry x="0.5" y="1150" width="100" height="20" as="geometry">
+            <mxPoint x="460" y="1150" as="sourcePoint" />
+            <mxPoint x="1180" y="1150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 7: Dashboard receives and updates -->
+        <mxCell id="s7" parent="1" style="rounded=1;fillColor#F0E8F8;strokeWidth=2;fontSize=10;fontColor=#000000;align=center;verticalAlign=middle;" value="9.a: Receive Event&#10;9.b: Update Graph Nodes&#10;9.c: Animate Node Addition&#10;9.d: Update Risk Log&#10;9.e: Refresh Dashboard" vertex="1">
+          <mxGeometry height="90" width="130" x="1115" y="1205" as="geometry" />
+        </mxCell>
+        
+        <!-- ARROW 10: Dashboard sends response to Agent -->
+        <mxCell id="m10" edge="1" parent="1" source="l3" target="l2" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;strokeWidth=2;endArrow=classic;strokeColor:#50C878;dashed=1;labelBackgroundColor=#ffffff;" value="10: HTTP 200 OK (RiskAnalysis JSON)">
+          <mxGeometry relative="1" y="20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m10y" parent="1" value="" style="line;html=1;strokeWidth=2;strokeColor#50C878;dashed=1;" edge="1" source="l3" target="l2">
+          <mxGeometry x="0.5" y="1350" width="100" height="20" as="geometry">
+            <mxPoint x="460" y="1350" as="sourcePoint" />
+            <mxPoint x="280" y="1350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- STEP 8: Agent completes -->
+        <mxCell id="s8" parent="1" style="rounded=1;fillColor#F0F8E8;strokeWidth=2;fontSize=10;fontColor#000000;align=center;verticalAlign=middle;" value="10.a: Log Response&#10;10.b: Process Complete&#10;10.c: Ready for Next Event" vertex="1">
+          <mxGeometry height="70" width="130" x="215" y="1400" as="geometry" />
+        </mxCell>
+        
+        <!-- LEGEND BOX -->
+        <mxCell id="legend" parent="1" style="rounded=1;fillColor:#F5F5F5;strokeWidth=2;strokeColor:#999999;fontSize=10;fontColor:#000000;align=left;verticalAlign=top;" value="LEGEND:&#10;━━ Solid Arrow = Synchronous Request&#10;- - - Dashed Arrow = Return/Response&#10;⚙ = Processing Step&#10;💾 = Database Operation" vertex="1">
+          <mxGeometry height="80" width="250" x="30" y="1520" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

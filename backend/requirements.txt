@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+sqlalchemy
+networkx
+scikit-learn
+pandas
+numpy
+watchdog
+ttkbootstrap
+jinja2
+python-multipart
+requests
+pytest
+aiofiles
+pyyaml

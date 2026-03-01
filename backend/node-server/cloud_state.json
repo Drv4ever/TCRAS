@@ -1,0 +1,70 @@
+{
+  "devices": {
+    "receiver-01": {
+      "deviceId": "receiver-01",
+      "lastSeen": "2026-03-01T07:16:31.080Z"
+    },
+    "receiver-0": {
+      "deviceId": "receiver-0",
+      "lastSeen": "2026-03-01T06:42:47.959Z"
+    },
+    "receiver-02": {
+      "deviceId": "receiver-02",
+      "lastSeen": "2026-03-01T06:43:58.923Z"
+    },
+    "sender-01": {
+      "deviceId": "sender-01",
+      "lastSeen": "2026-03-01T06:43:33.094Z"
+    },
+    "dhruv": {
+      "deviceId": "dhruv",
+      "lastSeen": "2026-03-01T07:12:41.520Z"
+    }
+  },
+  "transfers": [
+    {
+      "transferId": "eba1899e-26b4-43c1-a973-2ccb82011094",
+      "senderId": "sender-01",
+      "receiverId": "receiver-02",
+      "originalName": "Screencast from 2026-02-21 23-25-03.webm",
+      "storageName": "1772347413130-376576247.webm",
+      "size": 32614052,
+      "hash": "8992f5fbf8883308b3f18476844cecbfd566a14df475be2ba628622756bf58aa",
+      "createdAt": "2026-03-01T06:43:33.579Z",
+      "deliveredAt": "2026-03-01T06:43:51.427Z"
+    },
+    {
+      "transferId": "ad6cca0b-b23d-4aaa-98c6-74f46a91b1fd",
+      "senderId": "dhruv",
+      "receiverId": "receiver-01",
+      "originalName": "Screenshot from 2026-02-02 18-38-53.png",
+      "storageName": "1772348790598-259305060.png",
+      "size": 52098,
+      "hash": "a41b80c6c851b524179317015e865e227a86c519eb4af195449f848f6186c14d",
+      "createdAt": "2026-03-01T07:06:30.689Z",
+      "deliveredAt": "2026-03-01T07:06:53.369Z"
+    },
+    {
+      "transferId": "52ee60c2-4c34-4b74-a49f-15fd8f64bd53",
+      "senderId": "dhruv",
+      "receiverId": "receiver-01",
+      "originalName": "Wet-Road.jpg",
+      "storageName": "1772349138578-720546543.jpg",
+      "size": 3046292,
+      "hash": "90b0efd2fe0df6943817a717a452d3ac9bfdd1e854d0b23bb0626ea7ee3d90f3",
+      "createdAt": "2026-03-01T07:12:18.675Z",
+      "deliveredAt": "2026-03-01T07:12:26.878Z"
+    },
+    {
+      "transferId": "689d49bb-18b3-423b-a5f1-655a841fe60d",
+      "senderId": "dhruv",
+      "receiverId": "receiver-01",
+      "originalName": "Under_Starlit_Sky.png",
+      "storageName": "1772349161547-615239430.png",
+      "size": 11048331,
+      "hash": "700c64d9f0ae9634b45b9746f4ea41e17783bce91e149b008c98ae2c896e29e4",
+      "createdAt": "2026-03-01T07:12:41.767Z",
+      "deliveredAt": null
+    }
+  ]
+}

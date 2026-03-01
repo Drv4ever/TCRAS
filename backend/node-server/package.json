@@ -1,0 +1,32 @@
+{
+  "name": "tcras-transfer-server",
+  "version": "1.0.0",
+  "description": "Node.js transfer server for TCRAS - handles file uploads and LAN transfers",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "receiver": "node receiver.js",
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tcras",
+    "file-transfer",
+    "security",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "axios": "^1.6.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

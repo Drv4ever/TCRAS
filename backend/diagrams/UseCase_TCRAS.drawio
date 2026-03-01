@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-01-08T00:00:00.000Z" agent="5.0 (Windows)" version="20.0.3" type="device">
+  <diagram id="page-1" name="Use Case Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- System boundary -->
+        <mxCell id="2" value="TCRAS System" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;align=center;verticalAlign=middle;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="40" width="640" height="520" as="geometry"/>
+        </mxCell>
+
+        <!-- Actors (outside system) -->
+        <mxCell id="3" value="Client1\n(Test A)" style="shape=actor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="20" y="120" width="80" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="4" value="Client2\n(Test B)" style="shape=actor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="20" y="280" width="80" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="5" value="Server" style="shape=actor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="860" y="200" width="80" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Use case ovals (inside system boundary, parent=2) -->
+        <mxCell id="10" value="Monitor Files" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="2">
+          <mxGeometry x="60" y="40" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="11" value="Authenticate" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="2">
+          <mxGeometry x="60" y="120" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="12" value="Initiate Transfer" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="2">
+          <mxGeometry x="60" y="200" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="13" value="Transfer File" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="2">
+          <mxGeometry x="260" y="160" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="14" value="Receive File" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="2">
+          <mxGeometry x="430" y="160" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="15" value="Acknowledge Receipt" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="2">
+          <mxGeometry x="430" y="240" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="16" value="View Dashboard" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="2">
+          <mxGeometry x="260" y="60" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="17" value="Configure Settings" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="2">
+          <mxGeometry x="430" y="320" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="18" value="Log / Error Notification" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="2">
+          <mxGeometry x="260" y="320" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Associations: Client1 -->
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=none;" edge="1" parent="1" source="3" target="10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=none;" edge="1" parent="1" source="3" target="11">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=none;" edge="1" parent="1" source="3" target="12">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Associations: Client2 -->
+        <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=none;" edge="1" parent="1" source="4" target="10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=none;" edge="1" parent="1" source="4" target="11">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=none;" edge="1" parent="1" source="4" target="12">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Associations: Server (server-side use cases) -->
+        <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=none;" edge="1" parent="1" source="5" target="14">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=none;" edge="1" parent="1" source="5" target="15">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=none;" edge="1" parent="1" source="5" target="16">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=none;" edge="1" parent="1" source="5" target="17">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Message arrows (directional, labeled) -->
+        <mxCell id="30" value="Initiate Transfer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=classic;strokeColor=#1f77b4;" edge="1" parent="1" source="3" target="13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="31" value="Transfer File" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=classic;strokeColor=#1f77b4;" edge="1" parent="1" source="3" target="14">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="32" value="Acknowledge Receipt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=classic;strokeColor=#2ca02c;" edge="1" parent="1" source="14" target="3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="33" value="Initiate Transfer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=classic;strokeColor=#1f77b4;" edge="1" parent="1" source="4" target="13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="34" value="Transfer File" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=classic;strokeColor=#1f77b4;" edge="1" parent="1" source="4" target="14">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="35" value="Acknowledge Receipt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=classic;strokeColor=#2ca02c;" edge="1" parent="1" source="14" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="36" value="Notify Failure" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=classic;strokeColor=#d62728;" edge="1" parent="1" source="14" target="3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Include / Extend relationships (dashed) -->
+        <mxCell id="40" value="<<include>>" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;html=1;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="12" target="11">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="41" value="<<include>>" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;html=1;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="13" target="15">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="42" value="<<extend>>" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;html=1;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="13" target="18">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Dashboard update (internal server action) -->
+        <mxCell id="50" value="Update Status" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=12;labelBackgroundColor=#ffffff;endArrow=classic;strokeColor=#9467bd;" edge="1" parent="1" source="14" target="16">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Legend box -->
+        <mxCell id="60" value="Legend:\n- Solid line: association\n- Solid arrow: message flow\n- Dashed arrow: <<include>> / <<extend>>" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;align=left;verticalAlign=top;fillColor=#f5f5f5;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="180" y="580" width="420" height="120" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

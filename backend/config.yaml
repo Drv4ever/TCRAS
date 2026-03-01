@@ -1,0 +1,10 @@
+server:
+  host: "0.0.0.0"
+  port: 8000
+  db_path: "./tcras.db"
+
+security:
+  api_key: "tcras_secure_key_2024"
+
+agent:
+  root_watch_dir: "./monitored_files"
