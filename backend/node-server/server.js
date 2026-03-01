@@ -41,17 +41,30 @@ if (!fs.existsSync(RECEIVER_REVIEW_FILE)) {
   fs.writeFileSync(RECEIVER_REVIEW_FILE, JSON.stringify({ reviewed: {} }, null, 2));
 }
 
-const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000,http://localhost:5173').split(',');
-app.use(cors({
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000,http://localhost:5173')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
+
+const corsOptions = {
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
+    // Allow non-browser requests and local tools
+    if (!origin) return callback(null, true);
+
+    const isExactAllowed = allowedOrigins.includes(origin);
+    const isVercelPreview = origin.endsWith('.vercel.app');
+
+    if (isExactAllowed || isVercelPreview) {
+      return callback(null, true);
     }
+
+    return callback(new Error('Not allowed by CORS'));
   },
   credentials: true
-}));
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 app.use(express.json());
 
