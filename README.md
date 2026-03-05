@@ -29,3 +29,6 @@
     ```bash
     python -m src.agent.main
     ```
+
+
+Disclamer - this is a course base project !
