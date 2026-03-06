@@ -31,4 +31,4 @@
     ```
 
 
-Disclamer - this is a course base project !
+Disclamer - this is a course base project ! doesnot contain any affiliated marketing
