@@ -18,7 +18,7 @@ export function StatusBar({ localIP, isConnected }) {
             </div>
           </div>
           <div className="text-xs text-gray-500 dark:text-gray-500">
-            TCRAS v1.0.0
+            File Propagation Risk Detection System v1.0.0
           </div>
         </div>
       </div>

@@ -54,6 +54,18 @@ class RiskEngine:
         
         # Smoother inversion to avoid collapsing too often to 0 in pre-check mode
         risk_score = 50 - (score_raw * 120)
+
+        # Size-based adjustment layered on top of the Isolation Forest score.
+        # This does not replace the model; it nudges risk upward for very large files.
+        size_boost = 0.0
+        if file_size >= 500 * 1024 * 1024:      # >= 500 MB
+            size_boost = 18.0
+        elif file_size >= 200 * 1024 * 1024:    # >= 200 MB
+            size_boost = 12.0
+        elif file_size >= 100 * 1024 * 1024:    # >= 100 MB
+            size_boost = 7.0
+
+        risk_score += size_boost
         risk_score = max(0, min(100, risk_score)) # Clamp
         
         level = "LOW"
@@ -62,6 +74,6 @@ class RiskEngine:
         elif risk_score > 40:
             level = "MEDIUM"
 
-        return round(risk_score, 2), level, f"ML Score: {score_raw:.2f}"
+        return round(risk_score, 2), level, f"ML Score: {score_raw:.2f}, Size Boost: +{size_boost:.0f}"
 
 risk_engine = RiskEngine()

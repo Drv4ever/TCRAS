@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ThemeProvider } from 'next-themes';
 import { Toaster, toast } from 'sonner';
 import { Header } from './components/Header';
@@ -44,6 +44,8 @@ function AppContent() {
   const [receiverConnected, setReceiverConnected] = useState(false);
   const [receiverReason, setReceiverReason] = useState('');
   const [receiverFiles, setReceiverFiles] = useState([]);
+  const activeAnalysisIdRef = useRef(0);
+  const activeAnalysisAbortRef = useRef(null);
 
   const apiBaseUrl = useMemo(() => {
     const envBase = import.meta.env.VITE_API_BASE_URL;
@@ -56,6 +58,19 @@ function AppContent() {
       .replace(/^https?:\/\//i, '')
       .split('/')[0]
       .split(':')[0];
+
+  const isValidIpv4Host = (value) => {
+    const host = normalizeHost(value);
+    if (!host) return false;
+    if (host === 'localhost') return true;
+    const parts = host.split('.');
+    if (parts.length !== 4) return false;
+    return parts.every((part) => {
+      if (!/^\d+$/.test(part)) return false;
+      const n = Number(part);
+      return n >= 0 && n <= 255;
+    });
+  };
 
   const formatFileSize = (bytes) => {
     if (!bytes && bytes !== 0) return '-';
@@ -91,15 +106,16 @@ function AppContent() {
     const hash = await computeHash(file);
     const updatedMetadata = { ...metadata, hash };
     setSelectedFile(updatedMetadata);
-
-    if (transferMode === 'lan') {
-      const destinationHost = normalizeHost(targetIP);
-      if (destinationHost) analyzeRisk(file, destinationHost, updatedMetadata);
-    }
   };
 
   const analyzeRisk = async (file, ip, existingMetadata = null) => {
     if (!file || !ip) return;
+    const analysisId = activeAnalysisIdRef.current + 1;
+    activeAnalysisIdRef.current = analysisId;
+    activeAnalysisAbortRef.current?.abort();
+    const controller = new AbortController();
+    activeAnalysisAbortRef.current = controller;
+
     setIsAnalyzing(true);
     setUploadedFilePath(null);
 
@@ -108,9 +124,14 @@ function AppContent() {
       formData.append('file', file);
       formData.append('destinationIP', ip);
 
-      const response = await fetch(`${apiBaseUrl}/api/upload`, { method: 'POST', body: formData });
+      const response = await fetch(`${apiBaseUrl}/api/upload`, {
+        method: 'POST',
+        body: formData,
+        signal: controller.signal,
+      });
       const data = await response.json();
       if (!response.ok) throw new Error(data.message || data.error || 'Risk analysis failed');
+      if (analysisId !== activeAnalysisIdRef.current) return;
 
       const backendRiskScore = Number.isFinite(data?.risk?.score) ? data.risk.score : 0;
       const adjusted = data?.risk?.allowed ? backendRiskScore : Math.max(backendRiskScore, config.threshold + 1);
@@ -127,22 +148,30 @@ function AppContent() {
         hash: data?.file?.hash || baseMetadata.hash,
       });
     } catch (error) {
+      if (error?.name === 'AbortError') return;
+      if (analysisId !== activeAnalysisIdRef.current) return;
       setRiskScore(0);
       const message = error.message || 'Backend risk analysis failed';
       setStatusMessage(message);
       toast.error(message);
     } finally {
-      setIsAnalyzing(false);
+      if (analysisId === activeAnalysisIdRef.current) {
+        setIsAnalyzing(false);
+      }
     }
   };
 
   useEffect(() => {
     if (transferMode !== 'lan') return;
     const destinationHost = normalizeHost(targetIP);
-    if (rawFile && destinationHost && selectedFile?.hash) {
+    if (rawFile && destinationHost && selectedFile?.hash && isValidIpv4Host(destinationHost)) {
       analyzeRisk(rawFile, destinationHost);
     }
   }, [targetIP, selectedFile?.hash, rawFile, transferMode]);
+
+  useEffect(() => () => {
+    activeAnalysisAbortRef.current?.abort();
+  }, []);
 
   useEffect(() => {
     const checkServerHealth = async () => {
@@ -236,9 +265,11 @@ function AppContent() {
         setSelectedFile(null);
         setRawFile(null);
         setTargetIP('');
-        setRiskScore(0);
-        setStatusMessage('Normal Path');
         setUploadedFilePath(null);
+        if (transferMode === 'lan') {
+          setRiskScore(0);
+          setStatusMessage('Normal Path');
+        }
       }, 500);
     } catch (error) {
       toast.error(error.message || 'Transfer failed', { id: 'transfer' });

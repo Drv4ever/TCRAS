@@ -22,7 +22,7 @@ export function SettingsDialog({
         <DialogHeader>
           <DialogTitle>Configuration</DialogTitle>
           <DialogDescription>
-            Adjust TCRAS Transfer settings
+            Adjust File Propagation Risk Detection System settings
           </DialogDescription>
         </DialogHeader>
 

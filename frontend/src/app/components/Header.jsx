@@ -28,7 +28,7 @@ export function Header({ onSettingsClick }) {
             </div>
             <div>
               <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">
-                TCRAS Transfer
+                File Propagation Risk Detection System
               </h1>
               <p className="text-xs text-gray-500 dark:text-gray-400">
                 Secure File Transfer System

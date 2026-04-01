@@ -1,0 +1,9 @@
+.venv/
+backend/.venv/
+frontend/dist/
+backend/node-server/cloud_uploads/
+backend/node-server/uploads/
+backend/node-server/received_files/
+backend/node-server/.env
+__pycache__/
+*.pyc
