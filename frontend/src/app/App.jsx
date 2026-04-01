@@ -81,6 +81,17 @@ function AppContent() {
     return `${Math.round((bytes / Math.pow(k, i)) * 100) / 100} ${sizes[i]}`;
   };
 
+  const parseJsonResponse = async (response, fallbackMessage) => {
+    const raw = await response.text();
+    let data = {};
+    try {
+      data = raw ? JSON.parse(raw) : {};
+    } catch (_) {
+      throw new Error(fallbackMessage || `Server returned non-JSON response (HTTP ${response.status})`);
+    }
+    return data;
+  };
+
   const computeHash = async (file) => {
     setIsHashing(true);
     setHashProgress(0);
@@ -129,7 +140,7 @@ function AppContent() {
         body: formData,
         signal: controller.signal,
       });
-      const data = await response.json();
+      const data = await parseJsonResponse(response, `Upload failed (HTTP ${response.status}). Check backend file-size limit.`);
       if (!response.ok) throw new Error(data.message || data.error || 'Risk analysis failed');
       if (analysisId !== activeAnalysisIdRef.current) return;
 
@@ -246,7 +257,7 @@ function AppContent() {
         formData.append('receiverId', cloudReceiverId);
 
         const response = await fetch(`${apiBaseUrl}/api/cloud/upload`, { method: 'POST', body: formData });
-        const data = await response.json();
+        const data = await parseJsonResponse(response, `Cloud upload failed (HTTP ${response.status}). Check backend file-size limit.`);
         if (!response.ok) {
           if (Number.isFinite(data?.risk?.score)) {
             setRiskScore(Math.max(0, Math.min(100, data.risk.score)));

@@ -495,6 +495,25 @@ app.post('/api/cloud/ack/:transferId', (req, res) => {
   res.json({ success: true, transferId, deliveredAt: state.transfers[index].deliveredAt });
 });
 
+// Ensure upload and other server errors are always returned as JSON.
+app.use((err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    if (err.code === 'LIMIT_FILE_SIZE') {
+      return res.status(413).json({
+        error: 'File too large',
+        message: `Max upload size is ${Math.floor(MAX_FILE_SIZE / (1024 * 1024))}MB`
+      });
+    }
+    return res.status(400).json({ error: 'Upload error', message: err.message });
+  }
+
+  if (err) {
+    return res.status(500).json({ error: 'Server error', message: err.message || 'Unexpected server error' });
+  }
+
+  return next();
+});
+
 app.listen(PORT, () => {
   console.log('TCRAS server running on port', PORT);
 });
