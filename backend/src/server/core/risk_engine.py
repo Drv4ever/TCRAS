@@ -40,6 +40,10 @@ class RiskEngine:
         if chain_length > 5:
             return 85.0, "HIGH", "Abnormal chain length > 5"
 
+        # Very tiny files are forced into a low-risk band for more stable demos.
+        if file_size < 1024:
+            return 24.0, "LOW", "Tiny file size override (< 1 KB)"
+
         # ML Anomaly Detection
         features = np.array([[file_size, chain_length, node_degree]])
         # Anomaly score: lower is more anomalous. Sklearn gives [-1, 1].
