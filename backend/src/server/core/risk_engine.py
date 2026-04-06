@@ -56,14 +56,25 @@ class RiskEngine:
         risk_score = 50 - (score_raw * 120)
 
         # Size-based adjustment layered on top of the Isolation Forest score.
-        # This does not replace the model; it nudges risk upward for very large files.
+        # This does not replace the model; it pushes very small files down and
+        # large files up so the final score better matches the demo policy.
         size_boost = 0.0
         if file_size >= 500 * 1024 * 1024:      # >= 500 MB
-            size_boost = 18.0
+            size_boost = 32.0
+        elif file_size >= 300 * 1024 * 1024:    # >= 300 MB
+            size_boost = 26.0
         elif file_size >= 200 * 1024 * 1024:    # >= 200 MB
-            size_boost = 12.0
+            size_boost = 21.0
         elif file_size >= 100 * 1024 * 1024:    # >= 100 MB
-            size_boost = 7.0
+            size_boost = 14.0
+        elif file_size >= 50 * 1024 * 1024:     # >= 50 MB
+            size_boost = 8.0
+        elif file_size <= 1 * 1024 * 1024:      # <= 1 MB
+            size_boost = -12.0
+        elif file_size <= 5 * 1024 * 1024:      # <= 5 MB
+            size_boost = -8.0
+        elif file_size <= 10 * 1024 * 1024:     # <= 10 MB
+            size_boost = -5.0
 
         risk_score += size_boost
         risk_score = max(0, min(100, risk_score)) # Clamp
