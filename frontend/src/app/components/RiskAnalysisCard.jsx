@@ -37,9 +37,9 @@ export function RiskAnalysisCard({
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-6">
+    <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-6" data-testid="risk-analysis-card">
       {isAnalyzing ? (
-        <div className="py-8">
+        <div className="py-8" data-testid="risk-analyzing-state">
           <div className="flex flex-col items-center justify-center space-y-4">
             <Activity className="h-12 w-12 text-indigo-600 dark:text-indigo-400 animate-pulse" />
             <div className="text-center">
@@ -62,14 +62,14 @@ export function RiskAnalysisCard({
             </div>
             <div className="flex-1">
               <div className="flex items-baseline gap-2">
-                <div className={`text-5xl font-bold ${getRiskColor(riskScore)}`}>
+                <div className={`text-5xl font-bold ${getRiskColor(riskScore)}`} data-testid="risk-score-value">
                   {riskScore}
                 </div>
                 <div className={`text-xl font-semibold ${getRiskColor(riskScore)}`}>
                   %
                 </div>
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+              <div className="text-sm text-gray-600 dark:text-gray-400 mt-1" data-testid="risk-label">
                 {getRiskLabel(riskScore)}
               </div>
             </div>
@@ -102,7 +102,7 @@ export function RiskAnalysisCard({
                 <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
                   {riskScore < 30 ? 'Anomaly Detection:' : riskScore < 70 ? 'Alert:' : 'Warning:'}
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1" data-testid="risk-status-message">
                   {statusMessage}
                 </div>
               </div>

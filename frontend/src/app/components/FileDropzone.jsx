@@ -88,6 +88,7 @@ export function FileDropzone({
           type="file"
           className="hidden"
           onChange={handleFileChange}
+          data-testid="file-input"
         />
 
         {!selectedFile ? (

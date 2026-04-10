@@ -17,6 +17,7 @@ export function SendButton({
       disabled={isDisabled || isBlocked || isTransferring}
       onClick={onClick}
       variant={isBlocked ? 'destructive' : 'default'}
+      data-testid="send-button"
     >
       {isBlocked ? (
         <>

@@ -29,11 +29,13 @@ export function DestinationInput({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           className="flex-1"
+          data-testid="destination-ip-input"
         />
         <Button
           variant="outline"
           onClick={onDetectNearby}
           className="gap-2"
+          data-testid="detect-nearby-button"
         >
           <Wifi className="h-4 w-4" />
           Detect Nearby
